@@ -33,7 +33,7 @@ about:
   summary: 'A Python 2/3 implementation of tree structure.'
 
   description: |
-    treelib is a simple tree data structure implementation in python.
+    treelib is a simple tree data structure implementation in Python.
   doc_url: https://treelib.readthedocs.io/en/latest/
   dev_url: https://github.com/caesar0301/treelib
 
