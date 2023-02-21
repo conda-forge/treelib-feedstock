@@ -11,19 +11,24 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
   host:
-    - python
+    - python >=2.7
     - pip
   run:
-    - python
+    - python >=2.7
+    - future
 
 test:
   imports:
     - treelib
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/caesar0301/treelib
