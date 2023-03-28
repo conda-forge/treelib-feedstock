@@ -1,5 +1,5 @@
 {% set name = "treelib" %}
-{% set version = "1.6.3" %}
+{% set version = "1.6.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a0db5fd55d6cb4f307aecef4de184920a75db95e45f80e5860adf38718a2970a
+  sha256: 1a2e838f6b99e2690bc3d992d5a1f04cdb4af6564bd7688883c23d17257bbb2a
 
 build:
   noarch: python
