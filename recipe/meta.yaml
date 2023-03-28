@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >=2.7
-    - future
+    - six >=1.13.0
 
 test:
   imports:
