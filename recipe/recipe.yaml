@@ -1,16 +1,15 @@
 schema_version: 1
 
 context:
-  name: treelib
-  version: "1.7.1"
+  version: 1.8.0
 
 package:
-  name: ${{ name|lower }}
+  name: treelib
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: a2b57ba38290f7da6af97b41de8ff7be98e7a8c00815f95d0782241f77503952
+  url: https://github.com/caesar0301/treelib/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 5d1519b84178d0def1f3471250a8e9da8fce897fbf33a626a7f5372901a634ce
 
 build:
   number: 0
@@ -21,7 +20,7 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - setuptools
+    - poetry-core
   run:
     - python >=${{ python_min }}
     - six >=1.13.0
@@ -34,6 +33,15 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - '*'
+  - script:
+      - pytest -vvv tests/
+    requirements:
+      run:
+        - pytest
+        - pytest-cov
+    files:
+      source:
+        - tests/
 
 about:
   license: Apache-2.0
