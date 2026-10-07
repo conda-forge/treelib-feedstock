@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  version: 1.8.0
+
+package:
+  name: treelib
+  version: ${{ version }}
+
+source:
+  url: https://github.com/caesar0301/treelib/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 5d1519b84178d0def1f3471250a8e9da8fce897fbf33a626a7f5372901a634ce
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install --no-deps . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - poetry-core
+  run:
+    - python >=${{ python_min }}
+    - six >=1.13.0
+
+tests:
+  - python:
+      imports:
+        - treelib
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - '*'
+  - script:
+      - pytest -vvv tests/
+    requirements:
+      run:
+        - pytest
+        - pytest-cov
+    files:
+      source:
+        - tests/
+
+about:
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: A Python 2/3 implementation of tree structure.
+  description: |
+    treelib is a simple tree data structure implementation in Python.
+  homepage: https://github.com/caesar0301/treelib
+  repository: https://github.com/caesar0301/treelib
+  documentation: https://treelib.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - shcheklein
+    - maxhora
